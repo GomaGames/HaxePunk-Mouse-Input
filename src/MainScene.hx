@@ -42,6 +42,7 @@ class MainScene extends Scene
     }else if(Input.mouseReleased){
       left_button.deactivate();
     }
+    super.update();
   }
 
 }

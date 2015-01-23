@@ -9,6 +9,8 @@ class Button extends Entity
 
   public function new()
   {
+    super();
+
     /*
       Create a new Image graphic
       http://haxepunk.com/documentation/api/com/haxepunk/graphics/Image.html#createRect
@@ -22,8 +24,6 @@ class Button extends Entity
      */
     this.graphic = shape_image_off;
     this.setHitbox( 100, 100 );
-
-    super();
 
   }
 

@@ -34,15 +34,39 @@ class MainScene extends Scene
 
   public override function update():Void
   {
+
+    handleInput();
+    
+    super.update();
+  }
+
+  /*
+    Handle Mouse Input
+    http://haxepunk.com/documentation/api/com/haxepunk/utils/Input.html
+   */
+  private inline function handleInput():Void
+  {
+    // http://haxepunk.com/documentation/api/com/haxepunk/utils/Input.html#mousePressed
     if(Input.mouseDown){
-      trace( Input.mouseX, Input.mouseY );
+
+      /*
+        Check for collisions, make sure the Entity called setHitbox()
+        http://haxepunk.com/documentation/api/com/haxepunk/Entity.html#collidePoint
+       */
       if( left_button.collidePoint( left_button.x, left_button.y, Input.mouseX, Input.mouseY ) ){
         left_button.activate();
       }
-    }else if(Input.mouseReleased){
+      if( right_button.collidePoint( right_button.x, right_button.y, Input.mouseX, Input.mouseY ) ){
+        right_button.activate();
+      }
+
+    }else if(Input.mouseUp){
+      // http://haxepunk.com/documentation/api/com/haxepunk/utils/Input.html#mouseUp
+      
       left_button.deactivate();
+      right_button.deactivate();
+      
     }
-    super.update();
   }
 
 }

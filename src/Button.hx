@@ -23,7 +23,14 @@ class Button extends Entity
       http://haxepunk.com/documentation/api/com/haxepunk/Entity.html#graphic
      */
     this.graphic = shape_image_off;
-    this.setHitbox( 100, 100 );
+
+    /*
+      set the hitbox dimensions of this Entity
+      if you forget to call this function, collisions will not register
+      (this entity will not be clickable)
+      http://haxepunk.com/documentation/api/com/haxepunk/Entity.html#setHitbox
+     */
+    this.setHitbox( shape_image_off.width, shape_image_off.height );
 
   }
 
